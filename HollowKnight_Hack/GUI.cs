@@ -52,7 +52,8 @@ namespace HollowKnight_Hack
 
         public void OnGUI()
         {
-            GUI.Label(new Rect(xoffset, yoffset, 150f, 50f), g.GetSceneNameString() + " " + h.transform.position.ToString(), _style);
+            //GUI.Label(new Rect(xoffset, yoffset - 15, 150f, 50f), "Enemies: " + Enemy_hDisplay.enemy_count.ToString(), _style);
+            GUI.Label(new Rect(xoffset, yoffset, 150f, 50f), g.GetSceneNameString() + " " + h.transform.position, _style);
 
             if (PlayerData.instance.invinciTest)
                 GUI.Label(new Rect(xoffset, yoffset + 15, 150f, 50f), string.Format("[{0}] Godmode ON",Main.keybinds["Godmode"]), _styleON);
@@ -93,10 +94,7 @@ namespace HollowKnight_Hack
 
 
 
-            foreach (DebugMod.EnemyData a in EnemyFinder.enemyPool)
-            {
-                GUI.Label(new Rect(xoffset - 200, Screen.height, 150f, 50f), a.FSM.FsmVariables.GetFsmInt("HP").Value.ToString(),_style);
-            }
+            
         }
     }
 }

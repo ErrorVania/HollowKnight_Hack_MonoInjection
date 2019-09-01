@@ -217,13 +217,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modules\enemy.cs" />
+    <Compile Include="Modules\Enemy_hDisplay.cs" />
     <Compile Include="Modules\Godmode.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="Modules\HatchlingHack.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Modules\warp.cs" />
+    <Compile Include="Dump.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

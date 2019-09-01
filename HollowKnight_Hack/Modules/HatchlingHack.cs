@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 namespace HollowKnight_Hack
 {
     class HatchlingHack : MonoBehaviour
     {
-        private static KnightHatchling _template { get; set; }
+        private static GameObject _template { get; set; }
         private static HeroController h;
+
+        private List<GameObject> Knight_Hatchlings;
 
         public static bool state { get; set; }
         public static int minKH { get; set; }
@@ -13,31 +16,33 @@ namespace HollowKnight_Hack
         {
             h = HeroController.instance;
             _template = null;
+            Knight_Hatchlings = new List<GameObject>();
             state = false;
             minKH = 4;
         }
 
         public void Update()
         {
+            Knight_Hatchlings.Clear();
             if (state)
             {
-                KnightHatchling a = FindObjectOfType<KnightHatchling>();
-                if (a != null || a == _template)
+                GameObject[] a = FindObjectsOfType<GameObject>();
+                foreach (GameObject b in a)
                 {
-                    if (a.CurrentState == KnightHatchling.State.Follow)
-                        _template = a;
+                    if (b.GetComponent<KnightHatchling>() != null)
+                    {
+                        Knight_Hatchlings.Add(b);
+                    }
                 }
-                if (FindObjectsOfType<KnightHatchling>().Length < minKH)
-                    spawnHatchling();
+
+                if (Knight_Hatchlings.Count < minKH)
+                {
+                    GameObject f = GameObject.Instantiate(Knight_Hatchlings[0], GameObject.Find("Knight").transform);
+                    f.GetComponent<KnightHatchling>().FsmQuickSpawn();
+                }
             }
         }
 
         public static void updateTemplate() { _template = null; }
-
-        public static void spawnHatchling()
-        {
-            if (state && _template != null)
-                _template.Spawn(h.transform.position);
-        }
     }
 }

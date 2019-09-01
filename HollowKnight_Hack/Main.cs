@@ -32,6 +32,7 @@ namespace HollowKnight_Hack
             keybinds.Add("Warp", KeyCode.P);
             keybinds.Add("Add Blue Health", KeyCode.K);
             keybinds.Add("HatchlingTest", KeyCode.H);
+            keybinds.Add("SuperDump", KeyCode.F);
         }
         public void Update()
         {
@@ -59,7 +60,7 @@ namespace HollowKnight_Hack
 
             if (Input.GetKeyDown(keybinds["Warp"]))
                 //warp.tp();
-                g.LoadScene("GG_Atrium");
+                //g.LoadScene("GG_Atrium");
 
             if (Input.GetKeyDown(keybinds["Add Blue Health"]))
                 EventRegister.SendEvent("ADD BLUE HEALTH");
@@ -67,7 +68,13 @@ namespace HollowKnight_Hack
             if (Input.GetKeyDown(keybinds["HatchlingTest"]))
                 HatchlingHack.state = !HatchlingHack.state;
 
-            
+            if (Input.GetKeyDown(keybinds["SuperDump"]))
+            {
+                Dump.superdump();
+            }
+
+
+
         }
      
     }

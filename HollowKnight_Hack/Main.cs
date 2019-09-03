@@ -23,9 +23,9 @@ namespace HollowKnight_Hack
 
 
             keybinds.Add("Unload Lib",KeyCode.Delete);
-            keybinds.Add("Godmode", KeyCode.U);
+            keybinds.Add("Godmode", KeyCode.G);
             keybinds.Add("Infinite Soul", KeyCode.Q);
-            keybinds.Add("Full Heal", KeyCode.G);
+            keybinds.Add("Full Heal", KeyCode.U);
             keybinds.Add("Add Warp", KeyCode.W);
             keybinds.Add("Increase WarpSelector", KeyCode.R);
             keybinds.Add("Decrease WarpSelector", KeyCode.T);
@@ -33,6 +33,7 @@ namespace HollowKnight_Hack
             keybinds.Add("Add Blue Health", KeyCode.K);
             keybinds.Add("HatchlingTest", KeyCode.H);
             keybinds.Add("SuperDump", KeyCode.F);
+            keybinds.Add("Gui", KeyCode.E);
         }
         public void Update()
         {
@@ -41,10 +42,10 @@ namespace HollowKnight_Hack
 
 
             if (Input.GetKeyDown(keybinds["Infinite Soul"]))
-                Godmode.soulstate = !Godmode.soulstate;
+                Godmode.SoulStateSetter(!Godmode.soulstate);
 
             if (Input.GetKeyDown(keybinds["Godmode"]))
-                Godmode.godstate = !Godmode.godstate;
+                Godmode.GodStateSetter(!Godmode.godstate);
 
             if (Input.GetKeyDown(keybinds["Full Heal"]))
                 h.AddHealth(p.maxHealth - p.health);
@@ -73,7 +74,10 @@ namespace HollowKnight_Hack
                 Dump.superdump();
             }
 
-
+            if (Input.GetKeyDown(keybinds["Gui"]))
+            {
+                hGUI.GUIisenabled = !hGUI.GUIisenabled;
+            }
 
         }
      

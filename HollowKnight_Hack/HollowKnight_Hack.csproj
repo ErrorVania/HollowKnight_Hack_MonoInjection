@@ -217,11 +217,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnemyModules\Module1.cs" />
     <Compile Include="Modules\Enemy_hDisplay.cs" />
     <Compile Include="Modules\Godmode.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="Modules\HatchlingHack.cs" />
-    <Compile Include="Loader.cs" />
+    <Compile Include="Loader\Injector_Entry.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Modules\warp.cs" />
     <Compile Include="Dump.cs" />

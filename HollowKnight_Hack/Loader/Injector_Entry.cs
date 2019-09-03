@@ -3,11 +3,12 @@ namespace HK_Hack
 {
     public class Loader
     {
-        public static GameObject _Load;
+        private static GameObject _Load;
 
         public static void Init()
         {
             _Load = new GameObject();
+            
             _Load.name = "hLoader";
             _Load.AddComponent<HollowKnight_Hack.Main>();
             _Load.AddComponent<HollowKnight_Hack.hGUI>();
@@ -18,6 +19,10 @@ namespace HK_Hack
             _Load.AddComponent<HollowKnight_Hack.Enemy_hDisplay>();
             GameObject.DontDestroyOnLoad(_Load);
         }
+
+
+
+
         public static void Unload()
         {
             _Unload();

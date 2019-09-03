@@ -7,16 +7,17 @@ namespace HollowKnight_Hack
         private PlayerData p;
         private HeroController h;
 
-        public static bool godstate { get; set; }
-        public static bool soulstate { get; set; }
+        public static bool godstate;
+        public static bool soulstate;
+        private static bool UsedOnce;
 
         public void Start()
         {
             p = PlayerData.instance;
             h = HeroController.instance;
 
-            p.invinciTest = false;
 
+            UsedOnce = false;
             godstate = false;
             soulstate = false;
         }
@@ -25,9 +26,24 @@ namespace HollowKnight_Hack
 
         public void Update()
         {
-            p.invinciTest = godstate;
-            if (soulstate)
-                h.SetMPCharge(99);
+            if (UsedOnce)
+            {
+                p.invinciTest = godstate;
+                if (soulstate)
+                    h.SetMPCharge(99);
+            }
+        }
+
+
+        public static void GodStateSetter(bool a)
+        {
+            UsedOnce = true;
+            godstate = a;
+        }
+        public static void SoulStateSetter(bool a)
+        {
+            UsedOnce = true;
+            soulstate = a;
         }
     }
 }

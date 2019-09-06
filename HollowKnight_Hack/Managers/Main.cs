@@ -54,10 +54,11 @@ namespace HollowKnight_Hack
                 warp.addWarpPoint();
 
             if (Input.GetKeyDown(keybinds["Increase WarpSelector"]))
-                warp.WarpSelector++;
+                //warp.WarpSelector++;
+                
 
             if (Input.GetKeyDown(keybinds["Decrease WarpSelector"]))
-                warp.WarpSelector--;
+                //warp.WarpSelector--;
 
             if (Input.GetKeyDown(keybinds["Warp"]))
                 //warp.tp();

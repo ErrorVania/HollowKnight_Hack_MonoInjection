@@ -8,7 +8,7 @@ namespace HK_Hack
         public static void Init()
         {
             _Load = new GameObject();
-            
+
             _Load.name = "hLoader";
             _Load.AddComponent<HollowKnight_Hack.Main>();
             _Load.AddComponent<HollowKnight_Hack.hGUI>();
@@ -29,8 +29,18 @@ namespace HK_Hack
         }
         private static void _Unload()
         {
+            GameObject[] gObjects = GameObject.FindObjectsOfType<GameObject>();
+
+            for (int i = 0; i < gObjects.Length; i++)
+            {
+                if (gObjects[i].GetComponent<HollowKnight_Hack.Enemy_Extension>() != null)
+                {
+                    GameObject.Destroy(gObjects[i].GetComponent<HollowKnight_Hack.Enemy_Extension>());
+                }
+            }
+
             GameObject.Destroy(_Load);
         }
-        
+
     }
 }

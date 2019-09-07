@@ -11,7 +11,7 @@ namespace HollowKnight_Hack
         private GUIStyle _style;
         private GUIStyle _styleON;
         private GUIStyle _styleOFF;
-        
+
         private float xoffset;
         private float yoffset;
 
@@ -35,6 +35,8 @@ namespace HollowKnight_Hack
             xoffset = Screen.width - 200;
             yoffset = Screen.height - 90;
 
+
+
         }
 
         public void OnGUI()
@@ -42,7 +44,6 @@ namespace HollowKnight_Hack
             if (GUIisenabled)
             {
                 GUI.Label(new Rect(xoffset, yoffset - 15, 150f, 50f), "Enemies: " + FindObjectsOfType<HealthManager>().Length, _style);
-                //GUI.Label(new Rect(xoffset, yoffset - 15, 150f, 50f), "Selected Enemy: " + Enemy_hDisplay.EnemySelector, _style);
                 GUI.Label(new Rect(xoffset, yoffset, 150f, 50f), g.GetSceneNameString() + " " + h.transform.position, _style);
 
                 if (PlayerData.instance.invinciTest)
@@ -84,7 +85,7 @@ namespace HollowKnight_Hack
 
             }
 
-            
+
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
-using System.Collections;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace HollowKnight_Hack
 {
@@ -30,8 +29,8 @@ namespace HollowKnight_Hack
             warpCoords.Clear();
             warpSceneNames.Clear();
             WarpSelector = 0;
-            
-           
+
+
         }
         void Update()
         {
@@ -39,7 +38,7 @@ namespace HollowKnight_Hack
             {
                 WarpSelector++;
             }
-            if (WarpSelector > warpCoords.Count-1)
+            if (WarpSelector > warpCoords.Count - 1)
             {
                 WarpSelector--;
             }
@@ -72,7 +71,7 @@ namespace HollowKnight_Hack
 
 
             //GameManager.instance.ChangeToScene(warpSceneNames[WarpSelector], "", 0);
-            
+
             GameManager.instance.LoadScene(warpSceneNames[WarpSelector]);
             //GameManager.instance.ui.SetState(GlobalEnums.UIState.PLAYING);
 
@@ -80,7 +79,8 @@ namespace HollowKnight_Hack
 
         public static void addWarpPoint()
         {
-            if (!warpCoords.Contains(_h.transform.position) && !warpSceneNames.Contains(_g.GetSceneNameString())) {
+            if (!warpCoords.Contains(_h.transform.position) && !warpSceneNames.Contains(_g.GetSceneNameString()))
+            {
                 warpCoords.Add(_h.transform.position);
                 warpSceneNames.Add(_g.GetSceneNameString());
             }
@@ -88,6 +88,6 @@ namespace HollowKnight_Hack
 
 
 
-       
+
     }
 }

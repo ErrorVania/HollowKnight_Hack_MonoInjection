@@ -3,20 +3,15 @@
 
 namespace HollowKnight_Hack
 {
-
-
-
-
-
     class Enemy_Extension : MonoBehaviour
     {
         public int maxHealth;
         public bool drawLine, isVisible, isSmallEnemy;
         private GUIStyle style;
-        private HealthManager healthManager;
+        public HealthManager healthManager;
         private Vector2 pos;
         private LineRenderer lr;
-
+        public bool showPercent = false;
 
 
 
@@ -60,7 +55,7 @@ namespace HollowKnight_Hack
                 pos.y = 1080f - pos.y - 220f;
 
                 float percent = healthManager.hp * 100 / maxHealth;
-                lr.material.color = style.normal.textColor = Color.Lerp(Color.red, Color.green, percent / 100f);
+                lr.material.color = style.normal.textColor = ColorCalculatorEnemySelector.calcColor(percent);
 
 
                 lr.SetPositions(new Vector3[] {
@@ -70,8 +65,8 @@ namespace HollowKnight_Hack
 
 
 
-
-                GUI.Label(new Rect(pos, new Vector3(1, 1, 0)), percent.ToString() + "%", style);
+                if (showPercent)
+                    GUI.Label(new Rect(pos, new Vector3(1, 1, 0)), percent.ToString() + "%", style);
             }
             else
             {

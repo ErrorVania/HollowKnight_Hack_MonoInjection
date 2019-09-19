@@ -217,6 +217,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnemyModules\ColorCalculator.cs" />
     <Compile Include="EnemyModules\Enemy_Extension.cs" />
     <Compile Include="Modules\Enemy_hDisplay.cs" />
     <Compile Include="Modules\Godmode.cs" />

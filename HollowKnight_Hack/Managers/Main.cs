@@ -27,13 +27,14 @@ namespace HollowKnight_Hack
             keybinds.Add("Infinite Soul", KeyCode.Q);
             keybinds.Add("Full Heal", KeyCode.U);
             keybinds.Add("Add Warp", KeyCode.W);
-            keybinds.Add("Increase WarpSelector", KeyCode.R);
-            keybinds.Add("Decrease WarpSelector", KeyCode.T);
+            keybinds.Add("Increase EnemySelector", KeyCode.R);
+            keybinds.Add("Decrease EnemySelector", KeyCode.T);
             keybinds.Add("Warp", KeyCode.P);
-            keybinds.Add("Add Blue Health", KeyCode.K);
+            //keybinds.Add("Add Blue Health", KeyCode.K);
             keybinds.Add("HatchlingTest", KeyCode.H);
             keybinds.Add("SuperDump", KeyCode.F);
             keybinds.Add("Gui", KeyCode.E);
+            keybinds.Add("Killall", KeyCode.K);
         }
         public void Update()
         {
@@ -53,12 +54,12 @@ namespace HollowKnight_Hack
             if (Input.GetKeyDown(keybinds["Add Warp"]))
                 warp.addWarpPoint();
 
-            if (Input.GetKeyDown(keybinds["Increase WarpSelector"]))
-                //warp.WarpSelector++;
-                
+            if (Input.GetKeyDown(keybinds["Increase EnemySelector"]))
+                ColorCalculatorEnemySelector.selected++;
 
-            if (Input.GetKeyDown(keybinds["Decrease WarpSelector"]))
-                //warp.WarpSelector--;
+
+            if (Input.GetKeyDown(keybinds["Decrease EnemySelector"]))
+                ColorCalculatorEnemySelector.selected--;
 
             if (Input.GetKeyDown(keybinds["Warp"]))
                 //warp.tp();
@@ -78,6 +79,13 @@ namespace HollowKnight_Hack
             if (Input.GetKeyDown(keybinds["Gui"]))
             {
                 hGUI.GUIisenabled = !hGUI.GUIisenabled;
+            }
+            if (Input.GetKeyDown(keybinds["Killall"]))
+            {
+                foreach (HealthManager a in FindObjectsOfType<HealthManager>())
+                {
+                    a.Die(null, AttackTypes.Generic, true);
+                }
             }
 
         }

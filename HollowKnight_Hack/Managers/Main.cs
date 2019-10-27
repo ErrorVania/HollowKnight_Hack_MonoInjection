@@ -27,14 +27,12 @@ namespace HollowKnight_Hack
             keybinds.Add("Infinite Soul", KeyCode.Q);
             keybinds.Add("Full Heal", KeyCode.U);
             keybinds.Add("Add Warp", KeyCode.W);
-            keybinds.Add("Increase EnemySelector", KeyCode.R);
-            keybinds.Add("Decrease EnemySelector", KeyCode.T);
-            keybinds.Add("Warp", KeyCode.P);
-            //keybinds.Add("Add Blue Health", KeyCode.K);
+            keybinds.Add("Add Blue Health", KeyCode.B);
             keybinds.Add("HatchlingTest", KeyCode.H);
             keybinds.Add("SuperDump", KeyCode.F);
             keybinds.Add("Gui", KeyCode.E);
             keybinds.Add("Killall", KeyCode.K);
+            keybinds.Add("PrefabDump", KeyCode.R);
         }
         public void Update()
         {
@@ -54,16 +52,6 @@ namespace HollowKnight_Hack
             if (Input.GetKeyDown(keybinds["Add Warp"]))
                 warp.addWarpPoint();
 
-            if (Input.GetKeyDown(keybinds["Increase EnemySelector"]))
-                ColorCalculatorEnemySelector.selected++;
-
-
-            if (Input.GetKeyDown(keybinds["Decrease EnemySelector"]))
-                ColorCalculatorEnemySelector.selected--;
-
-            if (Input.GetKeyDown(keybinds["Warp"]))
-                //warp.tp();
-                //g.LoadScene("GG_Atrium");
 
             if (Input.GetKeyDown(keybinds["Add Blue Health"]))
                 EventRegister.SendEvent("ADD BLUE HEALTH");
@@ -75,6 +63,10 @@ namespace HollowKnight_Hack
             {
                 Dump.superdump();
             }
+            if (Input.GetKeyDown(keybinds["PrefabDump"]))
+            {
+                Dump.prefabs();
+            }
 
             if (Input.GetKeyDown(keybinds["Gui"]))
             {
@@ -84,7 +76,7 @@ namespace HollowKnight_Hack
             {
                 foreach (HealthManager a in FindObjectsOfType<HealthManager>())
                 {
-                    a.Die(null, AttackTypes.Generic, true);
+                    a.Die(null, AttackTypes.Nail, true);
                 }
             }
 

@@ -6,12 +6,11 @@ namespace HollowKnight_Hack
     class Enemy_Extension : MonoBehaviour
     {
         public int maxHealth;
-        public bool drawLine, isVisible, isSmallEnemy;
+        public bool isVisible, isSmallEnemy;
         private GUIStyle style;
         public HealthManager healthManager;
         private Vector2 pos;
         private LineRenderer lr;
-        public bool showPercent = false;
 
 
 
@@ -39,7 +38,7 @@ namespace HollowKnight_Hack
 
 
 
-            drawLine = isVisible = true;
+            isVisible = true;
             isSmallEnemy = (maxHealth <= PlayerData.instance.nailDamage) ? true : false;
 
         }
@@ -48,25 +47,19 @@ namespace HollowKnight_Hack
 
         void OnGUI()
         {
-            useGUILayout = false;
-            if (isVisible && drawLine && !isSmallEnemy)
+            if (isVisible && !isSmallEnemy)
             {
-                pos = Camera.main.WorldToScreenPoint(this.transform.position);
-                pos.y = 1080f - pos.y - 220f;
+                //pos = Camera.main.WorldToScreenPoint(this.transform.position);
+                //pos.y = 1080f - pos.y - 220f;
 
                 float percent = healthManager.hp * 100 / maxHealth;
-                lr.material.color = style.normal.textColor = ColorCalculatorEnemySelector.calcColor(percent);
+                lr.material.color = style.normal.textColor = Color.Lerp(Color.red, Color.green, percent / 100f);
 
 
                 lr.SetPositions(new Vector3[] {
                     transform.position,
                     FindObjectOfType<HeroController>().transform.position }
                 );
-
-
-
-                if (showPercent)
-                    GUI.Label(new Rect(pos, new Vector3(1, 1, 0)), percent.ToString() + "%", style);
             }
             else
             {

@@ -10,9 +10,6 @@ namespace HollowKnight_Hack
         private static HeroController _h;
         private static PlayerData _p;
 
-        private static string origDreamGateScene;
-        private static Vector2 origDreamGatePos;
-
         public static List<Vector3> warpCoords;
         public static List<string> warpSceneNames;
         public static int WarpSelector;

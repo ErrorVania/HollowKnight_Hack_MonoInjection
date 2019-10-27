@@ -73,5 +73,13 @@ namespace HollowKnight_Hack
             }
 
         }
+        public static void prefabs()
+        {
+            /*UnityEngine.Object[] arr = Resources.LoadAll("Prefabs", typeof(GameObject));
+            foreach (UnityEngine.Object o in arr)
+            {
+                Instantiate(o, FindObjectOfType<HeroController>().transform);
+            }*/
+        }
     }
 }

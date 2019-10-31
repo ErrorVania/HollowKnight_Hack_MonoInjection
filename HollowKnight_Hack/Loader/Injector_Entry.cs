@@ -15,11 +15,11 @@ namespace HK_Hack
 
             _Load.name = "hLoader";
             _Load.AddComponent<HollowKnight_Hack.Main>();
+            _Load.AddComponent<HollowKnight_Hack.CanvasText>();
             _Load.AddComponent<HollowKnight_Hack.hGUI>();
             _Load.AddComponent<HollowKnight_Hack.HatchlingHack>();
             _Load.AddComponent<HollowKnight_Hack.Godmode>();
             _Load.AddComponent<HollowKnight_Hack.Dump>();
-            _Load.AddComponent<HollowKnight_Hack.warp>();
             _Load.AddComponent<HollowKnight_Hack.Enemy_hDisplay>();
             GameObject.DontDestroyOnLoad(_Load);
         }

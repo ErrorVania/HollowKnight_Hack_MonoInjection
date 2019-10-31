@@ -217,6 +217,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CanvasText.cs" />
     <Compile Include="EnemyModules\Enemy_Extension.cs" />
     <Compile Include="Modules\Enemy_hDisplay.cs" />
     <Compile Include="Modules\Godmode.cs" />
@@ -224,7 +225,6 @@
     <Compile Include="Modules\HatchlingHack.cs" />
     <Compile Include="Loader\Injector_Entry.cs" />
     <Compile Include="Managers\Main.cs" />
-    <Compile Include="Modules\warp.cs" />
     <Compile Include="Dump.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

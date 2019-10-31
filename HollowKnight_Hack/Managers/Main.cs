@@ -26,7 +26,6 @@ namespace HollowKnight_Hack
             keybinds.Add("Godmode", KeyCode.G);
             keybinds.Add("Infinite Soul", KeyCode.Q);
             keybinds.Add("Full Heal", KeyCode.U);
-            keybinds.Add("Add Warp", KeyCode.W);
             keybinds.Add("Add Blue Health", KeyCode.B);
             keybinds.Add("HatchlingTest", KeyCode.H);
             keybinds.Add("SuperDump", KeyCode.F);
@@ -49,8 +48,6 @@ namespace HollowKnight_Hack
             if (Input.GetKeyDown(keybinds["Full Heal"]))
                 h.AddHealth(p.maxHealth - p.health);
 
-            if (Input.GetKeyDown(keybinds["Add Warp"]))
-                warp.addWarpPoint();
 
 
             if (Input.GetKeyDown(keybinds["Add Blue Health"]))
@@ -70,7 +67,8 @@ namespace HollowKnight_Hack
 
             if (Input.GetKeyDown(keybinds["Gui"]))
             {
-                hGUI.GUIisenabled = !hGUI.GUIisenabled;
+                //hGUI.GUIisenabled = !hGUI.GUIisenabled;
+                
             }
             if (Input.GetKeyDown(keybinds["Killall"]))
             {

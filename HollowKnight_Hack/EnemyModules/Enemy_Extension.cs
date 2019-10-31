@@ -9,7 +9,7 @@ namespace HollowKnight_Hack
         public bool isVisible, isSmallEnemy;
         private GUIStyle style;
         public HealthManager healthManager;
-        private Vector2 pos;
+        //private Vector2 pos;
         private LineRenderer lr;
 
 

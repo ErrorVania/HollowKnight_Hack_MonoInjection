@@ -44,14 +44,14 @@ namespace HollowKnight_Hack
                 for (int i = 0; i < advanced_all_gobjects.Length; i++)
                 {
                     content.Add(string.Format("Object -> Name: \"{0}\"; Layer: {1}", advanced_all_gobjects[i].obj.name, advanced_all_gobjects[i].obj.layer.ToString()));
-                    content.Add("-----Pos: " + advanced_all_gobjects[i].obj.transform.position.ToString());
+                    content.Add("   Pos: " + advanced_all_gobjects[i].obj.transform.position.ToString());
 
-                    if (advanced_all_gobjects[i].obj.tag != "Untagged") { content.Add("-----Tag: " + advanced_all_gobjects[i].obj.tag); }
+                    if (advanced_all_gobjects[i].obj.tag != "Untagged") { content.Add("   Tag: " + advanced_all_gobjects[i].obj.tag); }
 
                     foreach (Component c in advanced_all_gobjects[i].cList)
                     {
-                        if (c.tag == "Untagged") { content.Add("----------Component: " + c.GetType().ToString()); }
-                        else { content.Add("----------Component: " + c.GetType().ToString() + "; Component Tag: " + c.tag); }
+                        if (c.tag == "Untagged") { content.Add("      Component: " + c.GetType().ToString()); }
+                        else { content.Add("      Component: " + c.GetType().ToString() + "; Component Tag: " + c.tag); }
                     }
 
                 }
